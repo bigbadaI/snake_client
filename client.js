@@ -1,7 +1,7 @@
 const net = require('net');
 
 const connect = function() {
-  const conn = net.createConnection({ 
+  const conn = net.createConnection({
     host: '135.23.222.131',
     port: 50542
   });
@@ -10,7 +10,9 @@ const connect = function() {
   conn.on('connect', () => {
     console.log('Yes we have connected');
     conn.write('Name: BBA');
+    // conn.write('Move: up');
   });
+
   // server sending information back to us
   conn.on('data', (data) => {
     console.log('Server says: ' + data);
@@ -19,4 +21,6 @@ const connect = function() {
   return conn;
 };
 
-module.exports = connect;
+module.exports = {
+  connect: connect,
+};

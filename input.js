@@ -27,6 +27,9 @@ const setupInput = function(conn) {
     if (char === 'd') {
       theseKeys = 'Move: right';
     }
+    if (char === 't') {
+      theseKeys = "Say: Move Buddy!!";
+    }
    
     connection.write(theseKeys);
   };

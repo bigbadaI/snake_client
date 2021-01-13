@@ -7,8 +7,13 @@ const connect = function() {
   });
   // interpret incoming data as text
   conn.setEncoding('utf8');
+  conn.on('connect', () => {
+    console.log('Yes we have connected');
+    conn.write('Name: BBA');
+  });
+  // server sending information back to us
   conn.on('data', (data) => {
-    console.log('Server says' + data);
+    console.log('Server says: ' + data);
   });
 
   return conn;
